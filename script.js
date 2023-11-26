@@ -1,11 +1,11 @@
-const number = document.getElementById("num");
-const get_fact = document.getElementById("get_fact");
-const display = document.getElementById("display");
-
+const number = document.querySelector("#num");
+const category = document.querySelector("#category");
+const get_fact = document.querySelector("#get_fact");
+const display = document.querySelector("#display");
 
 
 get_fact.addEventListener("click", () => {
-    fetch(`http://numbersapi.com/${number.value}/math?json`)
+    fetch(`http://numbersapi.com/${number.value}/${category.value}?json`)
         .then(response => response.json())
         .then(data => {
             display.innerHTML = `
@@ -16,5 +16,3 @@ get_fact.addEventListener("click", () => {
             console.log(data);
         });        
 })
-
-// getFact(number);
